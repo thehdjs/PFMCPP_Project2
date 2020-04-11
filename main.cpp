@@ -17,7 +17,13 @@ video: Chapter 2 - Part 3
  1) Write down the names of all of the primitives available in C++ (excluding wchar_t)
  put them here: 
  
- 
+ int
+ unsigned int
+ char
+ float
+ bool
+ double
+ void
  
  
  
@@ -65,10 +71,37 @@ void variableDeclarations()
 {
     //example:
     int number = 2; //declaration of a primitive named 'number' with an initial value of '2'
+    int temperature = 20;
+    int phaseShift = -90;
+    int voltage = 15;
+
+    unsigned int age = 5;
+    unsigned int rms = 95;
+    unsigned int halfLife = 30;
+
+    char switch1State = 2;
+    char modeSelector = 9;
+    char midiChannel = 16; 
+    /*
+    tried char note = "a"; but got this error : 
     
+    main.cpp:84:10:      error: cannot initialize a variable of type 'char' with an lvalue of type
+      'const char [2]'
+    char note = "a";
+    */
+    float pot1 = 0;
+    float filterPosition = 25.25f;
+    float modulationRange = -55.2f;
+
+    bool led1 = false; //led1 output pin at low level
+    bool siren = true;
+    bool sequencerRunning = false;
+
+    double jeffBezosWealth = 160000000000;
+    double worldwideAntPopulation = 0;
+    double countdown = 0; 
     
-    
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, temperature, phaseShift, voltage, age, rms, halfLife, switch1State,modeSelector, midiChannel, pot1, filterPosition, modulationRange, led1, siren, sequencerRunning, jeffBezosWealth, worldwideAntPopulation ,countdown); //passing each variable declared to the ignoreUnused() function
 }
 /*
  10 functions
@@ -83,42 +116,86 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
+float rentalPrice(unsigned int rentalDuration, unsigned int carType = 0, unsigned int insurance = 0)
 
+{
+    ignoreUnused(rentalDuration, carType, insurance);  
+
+    return {};
+}
 /*
  2)
  */
+int carReference(int carColor = 0, int carLicenseNumber = 00000, unsigned int carConstructionYear = 2015)
+{
+    ignoreUnused(carColor, carLicenseNumber, carConstructionYear);  
+    return {};
+}
 
 /*
  3)
  */
-
+int jarContentAirExposure(bool jarOpen = false,  unsigned int sizeOfjarOpening = 0,int durationOfjarOpening = 0)
+{
+    ignoreUnused(jarOpen, sizeOfjarOpening, durationOfjarOpening);  
+    return {};
+}
 /*
  4)
  */
-
+int requiredAmountPasta(unsigned int numberOfPeople = 0)
+{
+    ignoreUnused(numberOfPeople);  
+    return {};
+}
 /*
  5)
  */
-
+bool eatSandwich(int speed, int biteSize = 4)
+{
+    ignoreUnused(speed, biteSize);  
+    return {};
+}
 /*
  6)
  */
-
+bool trigger(unsigned int midiChannel = 0, unsigned int velocity = 127)
+{
+    ignoreUnused(midiChannel, velocity);  
+    return {};
+}
 /*
  7)
  */
-
+float lfo1(float depth = 0, float rate = 5, char waveform = 0)
+{
+    ignoreUnused(depth, rate, waveform);  
+    return {};
+}
 /*
  8)
  */
-
+bool fermenting(bool brettanomyces = false, bool pitchedYeast = true, bool barrel = false, bool bottleConditioned = true)
+{
+    ignoreUnused(brettanomyces, pitchedYeast, barrel, bottleConditioned);  
+    return {};
+}
 /*
  9)
  */
-
+int time(int position = 0, bool summerTime = true)
+{
+    ignoreUnused(position, summerTime);  
+    return {};
+}
 /*
  10)
  */
+int hangry(int hunger, int anger)
+{
+    ignoreUnused(hunger, anger);  
+    return {};
+}
 
 int main()
 {
@@ -126,25 +203,25 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    rentalPrice(15);
     //2)
-    
+    carReference(5,16543,2018);
     //3)
-    
+    jarContentAirExposure();
     //4)
-    
+    requiredAmountPasta(2);
     //5)
-    
+    eatSandwich(10,6);
     //6)
-    
+    trigger(0,89);
     //7)
-    
+    lfo1(55, 0.125f, 7);
     //8)
-    
+    fermenting(1,0,1,1);
     //9)
-    
+    time(1, true);
     //10)
-    
+    hangry(5,5);
     
     ignoreUnused(carRented);
     std::cout << "good to go!" << std::endl;

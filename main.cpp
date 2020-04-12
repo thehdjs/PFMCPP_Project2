@@ -110,7 +110,7 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-[[nodiscard]] float rentalPrice(unsigned int rentalDuration, unsigned int carType = 0, unsigned int insurance = 0)
+float rentalPrice(unsigned int rentalDuration, unsigned int carType = 0, unsigned int insurance = 0)
 {
     ignoreUnused(rentalDuration, carType, insurance);  
 
@@ -196,7 +196,7 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    rentalPrice(15);
+    auto due = rentalPrice(15);
     //2)
     auto code = carReference(5,16543,2018);
     //3)
@@ -216,7 +216,7 @@ int main()
     //10)
     auto feeling = hangry(5,5);
     
-    ignoreUnused(carRented, code, mold, howMuchPasta, sandwichEatingDuration, noteOn, slot1, beer, whatTime, feeling);
+    ignoreUnused(carRented, due, code, mold, howMuchPasta, sandwichEatingDuration, noteOn, slot1, beer, whatTime, feeling);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }

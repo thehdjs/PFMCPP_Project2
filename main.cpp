@@ -79,16 +79,10 @@ void variableDeclarations()
     unsigned int rms = 95;
     unsigned int halfLife = 30;
 
-    char switch1State = 2;
-    char modeSelector = 9;
-    char midiChannel = 16; 
-    /*
-    tried char note = "a"; but got this error : 
-    
-    main.cpp:84:10:      error: cannot initialize a variable of type 'char' with an lvalue of type
-      'const char [2]'
-    char note = "a";
-    */
+    char switch1State = '2';
+    char modeSelector = '9';
+    char midiNote = 'A'; 
+
     float pot1 = 0;
     float filterPosition = 25.25f;
     float modulationRange = -55.2f;
@@ -97,11 +91,11 @@ void variableDeclarations()
     bool siren = true;
     bool sequencerRunning = false;
 
-    double jeffBezosWealth = 160000000000;
-    double worldwideAntPopulation = 0;
-    double countdown = 0; 
+    double jeffBezosWealth = 160000000000.0;
+    double worldwideAntPopulation = 0.0;
+    double pi = 3.14; 
     
-    ignoreUnused(number, temperature, phaseShift, voltage, age, rms, halfLife, switch1State,modeSelector, midiChannel, pot1, filterPosition, modulationRange, led1, siren, sequencerRunning, jeffBezosWealth, worldwideAntPopulation ,countdown); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, temperature, phaseShift, voltage, age, rms, halfLife, switch1State,modeSelector, midiNote, pot1, filterPosition, modulationRange, led1, siren, sequencerRunning, jeffBezosWealth, worldwideAntPopulation ,pi); //passing each variable declared to the ignoreUnused() function
 }
 /*
  10 functions
@@ -117,7 +111,6 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
  1)
  */
 float rentalPrice(unsigned int rentalDuration, unsigned int carType = 0, unsigned int insurance = 0)
-
 {
     ignoreUnused(rentalDuration, carType, insurance);  
 
@@ -126,16 +119,16 @@ float rentalPrice(unsigned int rentalDuration, unsigned int carType = 0, unsigne
 /*
  2)
  */
-int carReference(int carColor = 0, int carLicenseNumber = 00000, unsigned int carConstructionYear = 2015)
+int carReference(int carColor, int carManufacturer = 0, unsigned int carConstructionYear = 2015)
 {
-    ignoreUnused(carColor, carLicenseNumber, carConstructionYear);  
+    ignoreUnused(carColor, carManufacturer, carConstructionYear);  
     return {};
 }
 
 /*
  3)
  */
-int jarContentAirExposure(bool jarOpen = false,  unsigned int sizeOfjarOpening = 0,int durationOfjarOpening = 0)
+int jarContentAirExposure(bool jarOpen = false, unsigned int sizeOfjarOpening = 0,int durationOfjarOpening = 0)
 {
     ignoreUnused(jarOpen, sizeOfjarOpening, durationOfjarOpening);  
     return {};
@@ -203,27 +196,27 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    rentalPrice(15);
+    auto due = rentalPrice(15);
     //2)
-    carReference(5,16543,2018);
+    auto code = carReference(5,16543,2018);
     //3)
-    jarContentAirExposure();
+    auto mold = jarContentAirExposure();
     //4)
-    requiredAmountPasta(2);
+    auto howMuchPasta = requiredAmountPasta(2);
     //5)
-    eatSandwich(10,6);
+    auto sandwichEatingDuration = eatSandwich(10,6);
     //6)
-    trigger(0,89);
+    auto noteOn = trigger(0,89);
     //7)
-    lfo1(55, 0.125f, 7);
+    auto slot1 = lfo1(55, 0.125f, 7);
     //8)
-    fermenting(1,0,1,1);
+    auto beer = fermenting(1,0,1,1);
     //9)
-    time(1, true);
+    auto whatTime = time(1, true);
     //10)
-    hangry(5,5);
+    auto feeling = hangry(5,5);
     
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, due, code, mold, howMuchPasta, sandwichEatingDuration, noteOn, slot1, beer, whatTime, feeling);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
